@@ -1,0 +1,22 @@
+<h1><%= @restaurant.name %></h1>
+<h2>Address: <%=  @restaurant.address%></h2>
+<h3>Category: <%= @restaurant.category %></h3>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %> <%= review.rating %></li>
+  <% end %>
+</ul>
+
+<%= link_to "back to list", restaurants_path %>
+<!-- <%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content, placeholder: "Write your review here" %>
+  <%= f.input :rating, placeholder: "Add a rating (1-5)" %>
+  <%= f.submit "Add a review", class: "btn btn-primary" %>
+<% end %> -->
+
+<br>
+<br>
+
+<%= render 'reviews/form' %>
